@@ -1,0 +1,105 @@
+# LeetCode Problem Recommender
+
+A Python-based smart recommender system that suggests unsolved LeetCode problems to a user based on selected **topic**, **difficulty**, and previously solved problems. Built using a structured JSON dataset (e.g., Striver's Sheet), this project helps in systematic and personalized DSA practice.
+
+---
+
+## 📁 Project Structure
+
+```
+leetcode_recommender/
+├── main_leetcode.py                  # Main file to run recommender
+├── recommendation_leetcode.py       # Contains logic for recommendation
+├── leetcode_scraper.py              # Fetches solved problems from LeetCode
+├── leetcode_problemset.json         # Dataset (e.g., Striver sheet format)
+├── templates/                       # For web version (if Flask is used)
+│   ├── index.html                   # Input form UI
+│   └── results.html                 # Output recommendations UI
+├── static/                          # CSS files if needed
+├── README.md                        # This file
+```
+
+---
+
+## 🚀 How It Works
+
+1. User inputs their **LeetCode username**, **topic**, and **difficulty**.
+2. Script fetches user's solved problems using `leetcode_scraper.py`.
+3. It loads the structured dataset from `leetcode_problemset.json` (e.g., Striver's Sheet).
+4. Filters out already solved problems.
+5. From the remaining, matches problems with selected topic and difficulty.
+6. Randomly samples 5 problems for recommendation.
+
+---
+
+## 🛠 Tech Stack
+
+* **Python 3**
+* **JSON** for dataset
+* **HTML/CSS** (if frontend is used)
+* Optional: **Flask** for web interface
+
+---
+
+## 📌 Sample Input (Terminal Version)
+
+```bash
+Enter LeetCode username: somya_07
+Enter topic: array
+Enter difficulty (Easy/Medium/Hard): Easy
+```
+
+### 📌 Sample Output
+
+```
+1. Two Sum (Easy) - Link: https://leetcode.com/problems/two-sum
+2. Best Time to Buy and Sell Stock (Easy) - Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+...
+```
+
+---
+
+## 🧠 Interview Questions They Might Ask You (with smart answers):
+
+### ❓ Q1: How does your recommender system fetch solved problems?
+
+**Ans:** I use LeetCode's public profile scraping logic. It fetches the titles of solved problems using a custom parser in `leetcode_scraper.py`.
+
+### ❓ Q2: What makes your recommendations personalized?
+
+**Ans:** The system cross-checks user's solved problems and filters out only unsolved problems, ensuring the recommendations are always fresh and relevant.
+
+### ❓ Q3: What data structure or algorithm did you use for filtering?
+
+**Ans:** Set data structure is used to store solved titles (for O(1) lookups), and filtering is done using list comprehension and tag matching.
+
+### ❓ Q4: How is your project different from existing platforms like LeetCode Explore?
+
+**Ans:** Mine is lightweight, customizable, and can use different problemsets like Striver's Sheet, Neetcode, or custom JSON. It also gives flexibility to add difficulty, topics, and track unsolved ones easily.
+
+### ❓ Q5: What would you improve if given more time?
+
+**Ans:** Add:
+
+* Web-based UI using Flask
+* Track user progress
+* Add tagging suggestions using NLP
+* Graph-based topic progression system
+
+---
+
+## 💡 Future Improvements
+
+* Add user login and progress tracking
+* Integrate with databases (MongoDB/Firebase)
+* Add Codeforces and GFG in same interface
+
+---
+
+## 🙋‍♀️ Made By
+
+**Somya**, with ❤️ to help students prepare better for coding interviews.
+
+---
+
+For help, feedback, or collaboration: [somya.dev@example.com](mailto:somyashrimali142@gmail.com)

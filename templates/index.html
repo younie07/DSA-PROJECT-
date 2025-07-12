@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode Recommender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: url('/static/bg.jpg') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);  /* translucent black */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 0;
+    }
+
+    .card {
+      background: rgba(10, 10, 15, 0.5);
+      width: 480px;
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 10px 0 20px;
+    }
+
+    h2 span {
+      color: #1e88e5;
+    }
+
+    p.subtitle {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .info-block {
+      background-color: #1a1d25;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .info-block p {
+      font-size: 14px;
+      margin: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-block strong {
+      color: #1e88e5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      background-color: #1a1d25;
+      border: 2px solid transparent;
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #1e88e5;
+    }
+
+    button {
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      background-color: #1e88e5;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    .brand-icon {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      opacity: 0.5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔹 Fullscreen dark blur overlay -->
+  <div class="overlay"></div>
+
+  <!-- 🔸 Card container -->
+  <div class="card">
+    <div class="logo">LeetCode problems Recommender</div>
+    <nav>
+      <div></div>
+      <div>
+        <a href="#">Home</a>
+        <a href="#">Join</a>
+      </div>
+    </nav>
+
+    <p class="subtitle">LeetCode Profile for: <strong>{{ username }}</strong></p>
+    <div class="info-block">
+      <p><i class="fas fa-check-circle"></i> <strong>Solved:</strong> {{ solved }} / {{ total_problems }}</p>
+      <p><i class="fas fa-signal"></i> Easy: {{ easy }} | Medium: {{ medium }} | Hard: {{ hard }}</p>
+    </div>
+
+    <form action="/recommend" method="POST">
+      <input name="username" type="text" placeholder="Enter LeetCode username" required />
+      <input name="topic" type="text" placeholder="Enter topic (e.g. array)" required />
+      <select name="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button type="submit">Get Recommendations</button>
+    </form>
+
+    <div class="brand-icon"></div>
+  </div>
+</body>
+</html>
