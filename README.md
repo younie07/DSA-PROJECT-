@@ -41,3 +41,30 @@ Data     : JSON (static data source)
   <img src="https://img.shields.io/badge/Open%20to-Contributions-FDF0D5?style=for-the-badge&logo=git&logoColor=black"/>
 </p>
 
+
+### 🚀 Run Locally
+
+```bash
+ ⚙️ Step 1: Clone the Repository
+git clone https://github.com/younie07/leetcode-problem-recommender.git
+cd leetcode-problem-recommender
+ 🧪 Step 2: Create Virtual Environment (recommended)
+python -m venv venv
+ 💻 Step 3: Activate the Environment
+ 👉 For Windows:
+venv\Scripts\activate
+ 👉 For Mac/Linux:
+source venv/bin/activate
+ 📦 Step 4: Install Dependencies
+pip install flask
+ Or if requirements.txt is present:
+pip install -r requirements.txt
+ 🏁 Step 5: Run the Flask App
+python app.py
+ ➡️ Open in your browser:
+ http://localhost:5000
+ 🛑 To Stop the Server:
+ Press CTRL + C in your terminal
+ 💡 Optional: Save current dependencies
+pip freeze > requirements.txt
+```
